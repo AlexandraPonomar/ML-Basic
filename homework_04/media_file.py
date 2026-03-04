@@ -1,42 +1,27 @@
-
-from datetime import datetime
-import os
-
-
-class MediaFile(ABC):
-    """Базовый класс для всех медиа-файлов"""
-
-    def __init__(self, path, name, owner):
-        self.path = path
+class MediaFile:
+    def __init__(self, name, size, created_date, owner):
         self.name = name
+        self.size = size
+        self.created_date = created_date
         self.owner = owner
-        self.created_at = datetime.now()
-        self.modified_at = datetime.now()
-        self.metadata: Dict[str, Any] = {}
+        self.metadata = {}  # словарь, для хранения доп. информации
 
-    def get_info(self) -> str:
-        """Получить основную информацию о файле"""
-        pass
+    def get_info(self):
+        """Получить базовую информацию о файле"""
+        return f"Файл: {self.name}, размер: {self.size}MB, владелец: {self.owner}"
 
-    def get_size(self) -> int:
-        """Получить размер файла """
-        return 0
-
-    def rename(self, new_name: str) -> None:
+    def rename(self, new_name):
         """Переименовать файл"""
+        old_name = self.name
         self.name = new_name
-        self.modified_at = datetime.now()
-        print(f"Файл переименован в {new_name}")
+        print(f"Файл {old_name} переименован в {new_name}")
 
-    def save(self, destination: str) -> bool:
-        """Сохранить файл по указанному пути"""
-        pass
+    def save(self, destination):
+        """Сохранить файл (заглушка)"""
+        print(f"Сохранение {self.name} в {destination}")
+        return True
 
-    def delete(self) -> bool:
-        """Удалить файл"""
-        pass
-
-    def update_metadata(self, key: str, value: Any) -> None:
-        """Обновить метаданные файла"""
-        self.metadata[key] = value
-        self.modified_at = datetime.now()
+    def delete(self):
+        """Удалить файл (заглушка)"""
+        print(f"Удаление файла {self.name}")
+        return True
