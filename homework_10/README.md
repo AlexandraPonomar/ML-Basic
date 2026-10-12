@@ -18,7 +18,7 @@ https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data
 <br>
 
 **Часть 2. Preprocessing & Feature Engineering**
-
++++++++++++++++++++++++++++++++++++++++++++
 <br>
 
 Ваша цель — получить как можно более высокие метрики качества (можно взять несколько, R2, MAE, RMSE), сконцентрировавшись на преобразовании признаков.
